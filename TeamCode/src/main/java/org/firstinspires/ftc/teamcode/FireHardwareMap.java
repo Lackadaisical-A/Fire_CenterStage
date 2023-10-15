@@ -21,7 +21,7 @@ public class FireHardwareMap {
     public DcMotor BackLeftMotor = null;
 
     //create servos
-
+    public DcMotor IntakeMotor = null;
 
     public BNO055IMU imu = null;
 
@@ -43,6 +43,7 @@ public class FireHardwareMap {
         FrontLeftMotor = HardwareMap.get(DcMotor.class, "frontLeftMotor");
         BackRightMotor = HardwareMap.get(DcMotor.class, "backRightMotor");
         BackLeftMotor = HardwareMap.get(DcMotor.class, "backLeftMotor");
+        IntakeMotor = HardwareMap.get(DcMotor.class, "intakeMotor");
 
 
 
@@ -55,6 +56,7 @@ public class FireHardwareMap {
         FrontLeftMotor.setDirection(DcMotor.Direction.REVERSE);
         BackRightMotor.setDirection(DcMotor.Direction.FORWARD);
         BackLeftMotor.setDirection(DcMotor.Direction.REVERSE);
+        IntakeMotor.setDirection(DcMotor.Direction.FORWARD);
 
         //Set motor mode
         FrontRightMotor.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
@@ -72,11 +74,13 @@ public class FireHardwareMap {
         FrontLeftMotor.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         BackRightMotor.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         BackLeftMotor.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        IntakeMotor.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         //Set 0 power
         FrontRightMotor.setPower(0);
         FrontLeftMotor.setPower(0);
         BackRightMotor.setPower(0);
         BackLeftMotor.setPower(0);
+        IntakeMotor.setPower(0);
 
         BNO055IMU.Parameters parameters = new BNO055IMU.Parameters();
         //return value of radians

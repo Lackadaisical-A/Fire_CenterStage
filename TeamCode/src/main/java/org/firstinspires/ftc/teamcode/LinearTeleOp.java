@@ -65,7 +65,7 @@ public class LinearTeleOp extends LinearOpMode {
             max = Math.max(Math.abs(leftFrontPower), Math.abs(rightFrontPower));
             max = Math.max(max, Math.abs(leftBackPower));
             max = Math.max(max, Math.abs(rightBackPower));
-
+            i = gamepad1.right_trigger;
             if (max > 1) {
                 leftFrontPower  /= max;
                 rightFrontPower /= max;
@@ -73,15 +73,17 @@ public class LinearTeleOp extends LinearOpMode {
                 rightBackPower  /= max;
                 axial1 /=max;
                 axial2 /=max;
+                i /= max;
             }
             if(gamepad1.right_bumper){
-                i = 0.8;
+             i=i;
             }
             else{
                 leftFrontPower  /= 2;
                 rightFrontPower /= 2;
                 leftBackPower   /= 2;
                 rightBackPower  /= 2;
+
             }
 
 
@@ -92,6 +94,7 @@ public class LinearTeleOp extends LinearOpMode {
             HW.FrontRightMotor.setPower(rightFrontPower);
             HW.BackLeftMotor.setPower(leftBackPower);
             HW.BackRightMotor.setPower(rightBackPower);
+            HW.IntakeMotor.setPower(i);
 
 
             // Show the elapsed game time and wheel power.
@@ -99,7 +102,8 @@ public class LinearTeleOp extends LinearOpMode {
             telemetry.addData("Front left/Right", "%4.2f, %4.2f", leftFrontPower, rightFrontPower);
             telemetry.addData("Back  left/Right", "%4.2f, %4.2f", leftBackPower, rightBackPower);
             telemetry.addData("Servo  left/Right", "%4.2f, %4.2f", axial1, axial1);
-
+            telemetry.addData("Intake Operational: ", HW.IntakeMotor.isBusy());
+            telemetry.addData("Intake Number: ", i);
             telemetry.addData("Current frontLeftMotor Encoder Position: ", HW.FrontLeftMotor.getCurrentPosition());
             telemetry.addData("frontLeftMotor Operational: ", HW.FrontLeftMotor.isBusy());
             telemetry.addData("Current frontRightMotor Encoder Position: ", HW.FrontRightMotor.getCurrentPosition());

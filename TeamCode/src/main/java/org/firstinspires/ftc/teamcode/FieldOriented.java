@@ -29,7 +29,7 @@ public class FieldOriented extends LinearOpMode {
     public void runOpMode() {
         robot = new FireHardwareMap(this.hardwareMap);
         activeLocation = new ActiveLocation(robot);
-
+        double i = 0.0;
         double drive;
         double strafe;
         double turn;
@@ -72,7 +72,7 @@ public class FieldOriented extends LinearOpMode {
             backLeftPower = drive - strafe + turn;
             backRightPower = drive + strafe - turn;
 
-
+            i = gamepad1.right_trigger;
             if (Math.abs(frontLeftPower) > 1 || Math.abs(frontRightPower) > 1 || Math.abs(backLeftPower) > 1 || Math.abs(backRightPower) > 1){
                 maxPower = Math.max(Math.abs(frontLeftPower), Math.max(Math.abs(frontRightPower), Math.max(Math.abs(backLeftPower), Math.abs(backRightPower))));
 
@@ -97,6 +97,7 @@ public class FieldOriented extends LinearOpMode {
             robot.FrontRightMotor.setPower(frontRightPower * maxMotorSpeed);
             robot.BackRightMotor.setPower(backRightPower * maxMotorSpeed);
             robot.BackLeftMotor.setPower(backLeftPower * maxMotorSpeed);
+            robot.IntakeMotor.setPower(i);
 
 
 
