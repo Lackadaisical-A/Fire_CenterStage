@@ -1,5 +1,4 @@
 package org.firstinspires.ftc.teamcode;
-import com.qualcomm.hardware.rev.RevBlinkinLedDriver;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.util.ElapsedTime;
@@ -25,7 +24,7 @@ public class FieldOriented extends LinearOpMode {
     private FireHardwareMap robot = null;
     private ActiveLocation activeLocation = null;
     @Override
-
+///
     public void runOpMode() {
         robot = new FireHardwareMap(this.hardwareMap);
         activeLocation = new ActiveLocation(robot);
@@ -93,11 +92,11 @@ public class FieldOriented extends LinearOpMode {
                 backRightPower /= 1.8;
             }
 
-            robot.FrontLeftMotor.setPower(frontLeftPower * maxMotorSpeed);
-            robot.FrontRightMotor.setPower(frontRightPower * maxMotorSpeed);
-            robot.BackRightMotor.setPower(backRightPower * maxMotorSpeed);
-            robot.BackLeftMotor.setPower(backLeftPower * maxMotorSpeed);
-            robot.IntakeMotor.setPower(i);
+            robot.frontLeftMotor.setPower(frontLeftPower * maxMotorSpeed);
+            robot.frontRightMotor.setPower(frontRightPower * maxMotorSpeed);
+            robot.backRightMotor.setPower(backRightPower * maxMotorSpeed);
+            robot.backLeftMotor.setPower(backLeftPower * maxMotorSpeed);
+            robot.intakeMotor.setPower(i);
 
 
 
@@ -105,19 +104,19 @@ public class FieldOriented extends LinearOpMode {
             //TODO: Telemetry
             telemetry.addData("Version: ", "FieldOriented TeleOp 2.0.1");
 
-            telemetry.addData("Front Left Motor Power: ", robot.FrontLeftMotor.getPower());
-            telemetry.addData("Front Right Motor Power: ", robot.FrontRightMotor.getPower());
-            telemetry.addData("Back Left Motor Power: ", robot.BackLeftMotor.getPower());
-            telemetry.addData("Back Right Motor Power: ", robot.BackRightMotor.getPower());
+            telemetry.addData("Front Left Motor Power: ", robot.frontLeftMotor.getPower());
+            telemetry.addData("Front Right Motor Power: ", robot.frontRightMotor.getPower());
+            telemetry.addData("Back Left Motor Power: ", robot.backLeftMotor.getPower());
+            telemetry.addData("Back Right Motor Power: ", robot.backRightMotor.getPower());
 
-            telemetry.addData("Current frontLeftMotor Encoder Position: ", robot.FrontLeftMotor.getCurrentPosition());
-            telemetry.addData("frontLeftMotor Operational: ", robot.FrontLeftMotor.isBusy());
-            telemetry.addData("Current frontRightMotor Encoder Position: ", robot.FrontRightMotor.getCurrentPosition());
-            telemetry.addData("frontRightMotor Operational: ", robot.FrontRightMotor.isBusy());
-            telemetry.addData("Current backLeftMotor Encoder Position: ", robot.BackLeftMotor.getCurrentPosition());
-            telemetry.addData("backLeftMotor Operational: ", robot.BackLeftMotor.isBusy());
-            telemetry.addData("Current backRightMotor Encoder Position: ", robot.BackRightMotor.getCurrentPosition());
-            telemetry.addData("backRightMotor Operational: ", robot.BackRightMotor.isBusy());
+            telemetry.addData("Current frontLeftMotor Encoder Position: ", robot.frontLeftMotor.getCurrentPosition());
+            telemetry.addData("frontLeftMotor Operational: ", robot.frontLeftMotor.isBusy());
+            telemetry.addData("Current frontRightMotor Encoder Position: ", robot.frontRightMotor.getCurrentPosition());
+            telemetry.addData("frontRightMotor Operational: ", robot.frontRightMotor.isBusy());
+            telemetry.addData("Current backLeftMotor Encoder Position: ", robot.backLeftMotor.getCurrentPosition());
+            telemetry.addData("backLeftMotor Operational: ", robot.backLeftMotor.isBusy());
+            telemetry.addData("Current backRightMotor Encoder Position: ", robot.backRightMotor.getCurrentPosition());
+            telemetry.addData("backRightMotor Operational: ", robot.backRightMotor.isBusy());
             telemetry.update();
 
         }

@@ -3,9 +3,6 @@ package org.firstinspires.ftc.teamcode;
 
 import static org.firstinspires.ftc.teamcode.Angle.fromRadians;
 
-import org.firstinspires.ftc.teamcode.FireHardwareMap;
-import org.firstinspires.ftc.teamcode.Angle;
-
 import com.qualcomm.hardware.bosch.BNO055IMU;
 import com.qualcomm.robotcore.hardware.DcMotor;
 
@@ -47,8 +44,8 @@ public class ActiveLocation implements Runnable{
     public ActiveLocation (FireHardwareMap robot){
         this.imu = robot.imu;
         //TODO: Will be implemented once encoders are attached to bot
-        this.xDirectionEncoder = robot.BackRightMotor;
-        this.yDirectionEncoder = robot.FrontLeftMotor;
+        this.xDirectionEncoder = robot.backRightMotor;
+        this.yDirectionEncoder = robot.frontLeftMotor;
     }
 
 

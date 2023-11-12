@@ -1,9 +1,9 @@
 package org.firstinspires.ftc.teamcode;
 
-import java.util.Locale;
-
 import static org.firstinspires.ftc.teamcode.Constants.PI;
 import static org.firstinspires.ftc.teamcode.Constants.TAU;
+
+import java.util.Locale;
 
 public class Angle {
     //IN RADIANS
